@@ -3,6 +3,15 @@ import Counter from './counter';
 
 class Counters extends Component {
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log('PrevProps: ', prevProps);
+        console.log('PrevState', prevState);
+
+        if (prevProps.counter.value !== this.props.counter.value) {
+            //Ajax call, for example
+        }
+    }
+
     render() {
 
         const { counters, onReset, onDelete, onIncrement } = this.props;
