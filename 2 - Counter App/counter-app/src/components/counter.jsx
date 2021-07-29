@@ -14,6 +14,10 @@ class Counter extends Component {
         );
     }
 
+    componentWillUnmount() {
+        console.log('Counter - Unmounted');
+    }
+
     getBadgeClasses() {
         let classes = "btn m-2 btn-";
         classes += (this.props.counter.value === 0) ? "warning" : "primary";
