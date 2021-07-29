@@ -28,6 +28,14 @@ class App extends Component {
     this.setState({ counters });
   }
 
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    (counters[index].value > 0) ? counters[index].value-- : counters[index].value = 0;
+    this.setState({ counters });
+  }
+
   handleDelete = (counterId) => {
     const counters = this.state.counters.filter(c => c.id !== counterId);
     this.setState({ counters });
@@ -58,6 +66,7 @@ class App extends Component {
             onIncrement={this.handleIncrement}
             onReset={this.handleReset}
             onDelete={this.handleDelete}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment >
